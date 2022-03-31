@@ -1,0 +1,97 @@
+:root {
+  --rotateSpeed: 30s;
+  --bounceSpeed: 1.5s;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.master {
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  perspective: -50em;
+  perspective-origin: 50%;
+}
+
+.scene {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: sceneRotate var(--rotateSpeed) infinite linear;
+}
+@keyframes sceneRotate {
+  to {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+
+.cube {
+  position: absolute;
+  perspective: 80px;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg);
+  width: 50em;
+  height: 50em;
+  bottom: -25em;
+  left: 25%;
+}
+.cube .left, .cube .right, .cube .front, .cube .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.cube .front {
+  background-image: url("../images/space_background2.png");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  transform: translateZ(25em);
+}
+.cube .right {
+  background-image: url("../images/space_background2.png");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  transform: rotateY(90deg) translateZ(25em);
+}
+.cube .left {
+  background-image: url("../images/space_background2.png");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  transform: rotateY(270deg) translateZ(25em);
+}
+.cube .back {
+  background-image: url("../images/space_background2.png");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transform: translateZ(-25em);
+}
+.cube .top {
+  position: absolute;
+  transform: translateY(-50%) rotateX(90deg);
+  background-image: url("../images/space_background2.png");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  width: 50em;
+  height: 50em;
+}
+.cube .bottom {
+  position: absolute;
+  transform: translateY(50%) rotateX(90deg);
+  background-image: url("../images/space_background2.png");
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  width: 50em;
+  height: 50em;
+}
+
+/*# sourceMappingURL=styles.css.map */
